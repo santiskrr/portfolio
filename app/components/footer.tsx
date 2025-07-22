@@ -1,3 +1,6 @@
+import { FaGithub } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+
 function ArrowIcon() {
   return (
     <svg
@@ -17,19 +20,8 @@ function ArrowIcon() {
 
 export default function Footer() {
   return (
-    <footer className="mb-16">
+    <footer className="mb-10">
       <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="/rss"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">rss</p>
-          </a>
-        </li>
         <li>
           <a
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
@@ -37,8 +29,8 @@ export default function Footer() {
             target="_blank"
             href="https://github.com/santiskrr"
           >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
+            <FaGithub />
+            <p className="ml-2 h-7">Github</p>
           </a>
         </li>
         <li>
@@ -46,15 +38,15 @@ export default function Footer() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://vercel.com/templates/next.js/portfolio-starter-kit"
+            href="https://www.instagram.com/santiskrr?igsh=MXdicjJ1d2drbGJ4"
           >
-            <ArrowIcon />
-            <p className="ml-2 h-7">view source</p>
+            <FaInstagram className="rounded-md bg-gradient-to-t from-[#fcba03] via-[#f21167] to-[#870af5]" />
+            <p className="ml-2 h-7">Instagram</p>
           </a>
         </li>
       </ul>
       <p className="mt-8 text-neutral-600 dark:text-neutral-300">
-        © {new Date().getFullYear()} MIT Licensed
+        © {new Date().getFullYear()} Santi's CORP Todos los derechos reservados.
       </p>
     </footer>
   )
