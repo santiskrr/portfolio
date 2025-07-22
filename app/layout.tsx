@@ -1,3 +1,4 @@
+
 import './global.css'
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
@@ -7,6 +8,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
+import Silk from './components/Silk';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -44,6 +46,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+  
+
     <html
       lang="en"
       className={cx(
@@ -52,15 +56,24 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto"
+      >
+        <div>
+       <Silk
+speed={5}
+scale={1}
+color="#8800ffff"
+noiseIntensity={1.5}
+rotation={0}/>
+       
+        <Navbar />
+        {children}
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
+        </div>
       </body>
     </html>
+    
   )
 }
