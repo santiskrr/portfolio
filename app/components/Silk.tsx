@@ -28,7 +28,7 @@ interface SilkUniforms {
   [uniform: string]: IUniform;
 }
 
-const vertexShader = `j
+const vertexShader = `
 varying vec2 vUv;
 varying vec3 vPosition;
 
