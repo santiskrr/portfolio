@@ -116,7 +116,7 @@ function SectionHeading({ text, colorClass = 'text-white' }: SectionHeadingProps
 }
 
 export default function Page() {
-  const heroLines = ['Mi PortFolio', 'Santiago Caripan', 'Front‑End / 3D / Cyber UX']
+  const heroLines = ['Mi PortFolio', 'Santiago Caripan', 'Front‑End / HotFix / Cyber UX']
 
   const projectsDemo: ProjectCardProps[] = [
     {

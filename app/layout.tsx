@@ -43,7 +43,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
       <body className="antialiased relative max-w-xl mx-4 mt-8 lg:mx-auto">
-        {/* Fondo Silk */}
         <div className="fixed inset-0 -z-10">
           <Silk
             speed={5}
@@ -54,7 +53,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </div>
 
-        {/* Contenido principal */}
         <Navbar />
         {children}
         <Footer />

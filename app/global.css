@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+.six-caps-regular {
+  font-family: "Six Caps", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 .megrim-regular {
   font-family: "Megrim", system-ui;
@@ -7,9 +16,23 @@
   font-style: normal;
 }
 
+.orbitron-regular {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
+.animated-bg {
+  background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf);
+  background-size: 600% 600%;
+  animation: gradientShift 12s ease infinite;
+}
 
-
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 
 
@@ -161,3 +184,88 @@ table {
 .title {
   text-wrap: balance;
 }
+
+
+
+
+
+
+
+/* === Cyberpunk Card Neon Effect ======================================= */
+.cyber-card {
+  position: relative;
+  isolation: isolate; /* para que los pseudo queden atrás */
+}
+
+/* Glow difuso animado (halo) */
+.cyber-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #ff00d4,
+    #00f9ff,
+    #b6ff00,
+    #ff00d4
+  );
+  background-size: 300% 300%;
+  filter: blur(12px);
+  opacity: 0.8;
+  animation: cyber-glow 4s linear infinite;
+}
+
+/* Trazo fino animado siguiendo el contorno */
+.cyber-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* grosor del borde */
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #ff00d4,
+    #00f9ff,
+    #b6ff00,
+    #ff00d4
+  );
+  background-size: 300% 300%;
+  animation: cyber-border 2.5s linear infinite;
+  /* recortamos para que el centro sea transparente */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Opcional: scanlines dentro (activar si querés) */
+/*
+.cyber-card > .cyber-inner::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.04) 0 1px,
+    transparent 1px 3px
+  );
+  mix-blend-mode:overlay;
+  pointer-events:none;
+}
+*/
+
+@keyframes cyber-glow {
+  0%   { background-position: 0% 50%; opacity:0.7; }
+  50%  { background-position: 100% 50%; opacity:1; }
+  100% { background-position: 0% 50%; opacity:0.7; }
+}
+
+@keyframes cyber-border {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+

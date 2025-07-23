@@ -45,7 +45,7 @@ export default function Page() {
         />
       </h1>
       <BlurText
-        text="Bienvenido a mi espacio personal donde comparto experiencias, aprendizajes y un poco de humo tech."
+        text="Bienvenido a mi espacio personal donde comparto experiencias, aprendizajes y un poco de todo."
         delay={150}
         animateBy="words"
         direction="top"
