@@ -16,6 +16,7 @@
     "framer-motion": "^12.23.6",
     "geist": "1.2.2",
     "gsap": "^3.13.0",
+    "lenis": "^1.3.8",
     "next": "canary",
     "next-mdx-remote": "^4.4.1",
     "postcss": "^8.4.35",
