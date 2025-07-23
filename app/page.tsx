@@ -1,28 +1,36 @@
-"use client"
+'use client'
+
 import Link from 'next/link'
 import TextType from './components/TextType'
 import DecryptedText from './components/DecryptedText'
-import { ReactNode } from 'react'
+import { ReactNode, ElementType, ComponentPropsWithoutRef } from 'react'
 
 const COLORS = {
   neonViolet: '#8800ff',
   neonPink: '#ff00d4',
   neonCyan: '#00f9ff',
   neonLime: '#b6ff00',
-}
+} as const
 
 function glowText(base: string = ''): string {
   return `drop-shadow-[0_0_6px_rgba(255,255,255,.6)] ${base}`
 }
 
-interface NeonBoxProps {
+interface NeonBoxProps<T extends ElementType = 'div'> {
+  as?: T
   children: ReactNode
   className?: string
-  color?: string
-  as?: keyof JSX.IntrinsicElements
+  color?: (typeof COLORS)[keyof typeof COLORS]
 }
 
-function NeonBox({ children, className = '', color = COLORS.neonCyan, as: Tag = 'div' }: NeonBoxProps) {
+function NeonBox<T extends ElementType = 'div'>({
+  as,
+  children,
+  className = '',
+  color = COLORS.neonCyan,
+  ...rest
+}: NeonBoxProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof NeonBoxProps>) {
+  const Tag = as || 'div'
   return (
     <Tag
       className={`relative rounded-xl p-[1px] ${className}`}
@@ -30,6 +38,7 @@ function NeonBox({ children, className = '', color = COLORS.neonCyan, as: Tag = 
         background: `linear-gradient(135deg, ${color} 0%, ${COLORS.neonPink} 100%)`,
         boxShadow: `0 0 12px ${color}AA, 0 0 32px ${color}55`,
       }}
+      {...rest}
     >
       <div className="rounded-xl bg-black/60 backdrop-blur-sm p-4">
         {children}
@@ -41,7 +50,7 @@ function NeonBox({ children, className = '', color = COLORS.neonCyan, as: Tag = 
 interface NeonButtonProps {
   href: string
   children: ReactNode
-  color?: string
+  color?: (typeof COLORS)[keyof typeof COLORS]
   className?: string
 }
 
@@ -68,7 +77,7 @@ interface ProjectCardProps {
   description: string
   href: string
   tags?: string[]
-  color?: string
+  color?: (typeof COLORS)[keyof typeof COLORS]
 }
 
 function ProjectCard({ title, description, href, tags = [], color = COLORS.neonPink }: ProjectCardProps) {
