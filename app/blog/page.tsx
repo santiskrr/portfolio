@@ -81,9 +81,6 @@ export default function Page() {
                 </span>
               ))}
             </div>
-            <Link href={post.href} className="text-cyan-400 hover:underline text-sm">
-              Leer más
-            </Link>
           </article>
         ))}
       </div>
